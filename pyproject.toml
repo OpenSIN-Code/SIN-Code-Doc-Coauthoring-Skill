@@ -1,0 +1,84 @@
+# Docs: pyproject.toml.doc.md
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sin-doc-coauthoring"
+version = "0.1.0"
+description = "SIN-Code Doc Coauthoring Skill - MCP server for collaborative document creation (READMEs, ADRs, specs, design docs)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    {name = "OpenSIN-Code", email = "agent@opensin-code.org"}
+]
+keywords = ["mcp", "docs", "coauthoring", "sin-code", "agent", "readme", "adr", "spec"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Documentation",
+]
+dependencies = [
+    "fastmcp>=0.4.0",
+    "click>=8.0",
+    "rich>=13.0",
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+]
+pdf = [
+    "weasyprint>=60.0",
+]
+
+[project.scripts]
+sin-doc = "sin_doc_coauthoring.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/OpenSIN-Code/SIN-Code-Doc-Coauthoring-Skill"
+Repository = "https://github.com/OpenSIN-Code/SIN-Code-Doc-Coauthoring-Skill"
+Issues = "https://github.com/OpenSIN-Code/SIN-Code-Doc-Coauthoring-Skill/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sin_doc_coauthoring"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/sin_doc_coauthoring/py.typed" = "sin_doc_coauthoring/py.typed"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "N", "D", "UP", "B", "C4", "SIM"]
+ignore = ["D100", "D104", "D107"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=sin_doc_coauthoring --cov-report=term-missing --cov-report=html"
+asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::ResourceWarning",
+]
