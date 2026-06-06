@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sin-doc-coauthoring"
-version = "0.1.0"
+version = "0.2.0"
 description = "SIN-Code Doc Coauthoring Skill - MCP server for collaborative document creation (READMEs, ADRs, specs, design docs)"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -48,6 +48,18 @@ pdf = [
 
 [project.scripts]
 sin-doc = "sin_doc_coauthoring.cli:main"
+# v0.2.0 — Standalone CLI shims for the 10 MCP tools. Sub-agents and shell
+# users can call these without spinning up the MCP server.
+doc-start = "sin_doc_coauthoring.cli_shims.doc_start:main"
+doc-context-gather = "sin_doc_coauthoring.cli_shims.doc_context_gather:main"
+doc-outline-propose = "sin_doc_coauthoring.cli_shims.doc_outline_propose:main"
+doc-section-draft = "sin_doc_coauthoring.cli_shims.doc_section_draft:main"
+doc-section-save = "sin_doc_coauthoring.cli_shims.doc_section_save:main"
+doc-review = "sin_doc_coauthoring.cli_shims.doc_review:main"
+doc-format-render = "sin_doc_coauthoring.cli_shims.doc_format_render:main"
+doc-diff-show = "sin_doc_coauthoring.cli_shims.doc_diff_show:main"
+doc-export = "sin_doc_coauthoring.cli_shims.doc_export:main"
+doc-session-list = "sin_doc_coauthoring.cli_shims.doc_session_list:main"
 
 [project.urls]
 Homepage = "https://github.com/OpenSIN-Code/SIN-Code-Doc-Coauthoring-Skill"
