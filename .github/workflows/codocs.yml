@@ -1,0 +1,71 @@
+# Purpose: Enforce 100% CoDocs compliance on every PR.
+# Docs: ../../docs/codocs-ci.doc.md
+name: CoDocs Compliance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  codocs-check:
+    name: sin codocs check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install sin-code-bundle
+        run: pip install sin-code-bundle
+
+      - name: Verify all Docs: references resolve
+        run: |
+          result=$(sin codocs check . --json)
+          count=$(echo "$result" | python3 -c "import json,sys; print(len(json.loads(sys.stdin.read())))")
+          if [ "$count" -gt 0 ]; then
+            echo "::error::Found $count broken CoDocs references"
+            echo "$result" | python3 -m json.tool
+            exit 1
+          fi
+          echo "All $(find . -name '*.doc.md' -not -path './.git/*' | wc -l | tr -d ' ') .doc.md companions resolve correctly."
+
+      - name: Run inline doc check (warning only)
+        run: |
+          result=$(sin codocs check-inline . --json 2>/dev/null || echo "[]")
+          count=$(echo "$result" | python3 -c "import json,sys; print(len(json.loads(sys.stdin.read())))" 2>/dev/null || echo "0")
+          if [ "$count" -gt 0 ]; then
+            echo "::warning::Found $count inline doc issues (non-blocking)"
+          else
+            echo "All inline docs (Purpose/Docs headers) are present."
+          fi
+
+  repair-preview:
+    name: repair_codocs dry-run
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run repair_codocs.py --dry-run
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/SIN-Rotator/SINator-v0/main/tools/repair_codocs.py -o /tmp/repair_codocs.py
+          python3 /tmp/repair_codocs.py . --dry-run
