@@ -1,5 +1,5 @@
 # Purpose: Shared test fixtures and configuration.
-# Docs: tests/conftest.doc.md
+# Docs: conftest.doc.md
 """Shared fixtures for pytest."""
 
 import os

@@ -1,5 +1,5 @@
 # Purpose: Tests for the document reviewer.
-# Docs: tests/test_reviewer.doc.md
+# Docs: test_reviewer.doc.md
 """Test document review heuristics."""
 
 import pytest

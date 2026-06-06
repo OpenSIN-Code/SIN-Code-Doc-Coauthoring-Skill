@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Purpose: Start a new doc coauthoring session.
-# Docs: scripts/doc-start.sh.doc.md
+# Docs: doc-start.sh.doc.md
 set -euo pipefail
 
 # Usage: doc-start.sh <type> <title> [path] [goals]

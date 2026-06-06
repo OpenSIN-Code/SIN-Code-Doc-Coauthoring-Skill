@@ -1,5 +1,5 @@
 # Purpose: Tests for the context gatherer.
-# Docs: tests/test_context.doc.md
+# Docs: test_context.doc.md
 """Test context gathering from a project path."""
 
 import json

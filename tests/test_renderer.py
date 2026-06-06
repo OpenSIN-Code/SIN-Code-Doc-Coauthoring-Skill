@@ -1,5 +1,5 @@
 # Purpose: Tests for the multi-format renderer.
-# Docs: tests/test_renderer.doc.md
+# Docs: test_renderer.doc.md
 """Test Markdown, HTML, and PDF rendering."""
 
 from pathlib import Path

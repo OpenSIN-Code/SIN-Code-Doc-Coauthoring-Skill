@@ -1,5 +1,5 @@
 # Purpose: Tests for the MCP server.
-# Docs: tests/test_mcp_server.doc.md
+# Docs: test_mcp_server.doc.md
 """Test all MCP tool functions."""
 
 import json

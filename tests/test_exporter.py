@@ -1,5 +1,5 @@
 # Purpose: Tests for the exporter.
-# Docs: tests/test_exporter.doc.md
+# Docs: test_exporter.doc.md
 """Test file, git, and share-link exporters."""
 
 import subprocess

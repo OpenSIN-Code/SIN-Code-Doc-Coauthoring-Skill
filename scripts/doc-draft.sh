@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Purpose: Draft a section in an existing session.
-# Docs: scripts/doc-draft.sh.doc.md
+# Docs: doc-draft.sh.doc.md
 set -euo pipefail
 
 # Usage: doc-draft.sh <session-id> <section-name>

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Purpose: Review a draft in an existing session.
-# Docs: scripts/doc-review.sh.doc.md
+# Docs: doc-review.sh.doc.md
 set -euo pipefail
 
 # Usage: doc-review.sh <session-id>

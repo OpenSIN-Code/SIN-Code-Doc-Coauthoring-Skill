@@ -1,5 +1,5 @@
 # Purpose: Tests for the section drafter.
-# Docs: tests/test_drafter.doc.md
+# Docs: test_drafter.doc.md
 """Test section drafting and clarifying questions."""
 
 import pytest

@@ -1,5 +1,5 @@
 # Purpose: Tests for the CLI.
-# Docs: tests/test_cli.doc.md
+# Docs: test_cli.doc.md
 """Test the CLI subcommands."""
 
 import json

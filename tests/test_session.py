@@ -1,5 +1,5 @@
 # Purpose: Tests for the coauthoring session state machine.
-# Docs: tests/test_session.doc.md
+# Docs: test_session.doc.md
 """Test session lifecycle, state transitions, and persistence."""
 
 import json

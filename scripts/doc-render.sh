@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Purpose: Render a draft to a final format.
-# Docs: scripts/doc-render.sh.doc.md
+# Docs: doc-render.sh.doc.md
 set -euo pipefail
 
 # Usage: doc-render.sh <session-id> [format]

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Purpose: Propose an outline for an existing session.
-# Docs: scripts/doc-outline.sh.doc.md
+# Docs: doc-outline.sh.doc.md
 set -euo pipefail
 
 # Usage: doc-outline.sh <session-id>

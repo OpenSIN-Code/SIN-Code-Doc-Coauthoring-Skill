@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Purpose: Export a finished document to a destination.
-# Docs: scripts/doc-export.sh.doc.md
+# Docs: doc-export.sh.doc.md
 set -euo pipefail
 
 # Usage: doc-export.sh <session-id> <destination> [format]

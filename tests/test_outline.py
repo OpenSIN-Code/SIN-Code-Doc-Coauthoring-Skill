@@ -1,5 +1,5 @@
 # Purpose: Tests for the outline proposer.
-# Docs: tests/test_outline.doc.md
+# Docs: test_outline.doc.md
 """Test outline proposal for all doc types."""
 
 import pytest
