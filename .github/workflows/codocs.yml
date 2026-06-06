@@ -1,5 +1,3 @@
-# Purpose: Enforce 100% CoDocs compliance on every PR.
-# Docs: ../../docs/codocs-ci.doc.md
 name: CoDocs Compliance
 
 on:
